@@ -1,0 +1,11 @@
+import re
+
+pattern =r'^@+[0-9a-zA-Z]'
+
+z=input("Enter the Twitter Username\n")
+
+if re.match(pattern, z):
+   print(z)
+else:
+   print("Invalid")
+
