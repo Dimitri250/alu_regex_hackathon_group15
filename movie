@@ -1,0 +1,8 @@
+import re
+
+string = "The movie is titled Sniper (2017), and it's a great film."
+pattern = r'\b\w+\s\(\d{4}\)'
+
+matches = re.findall(pattern, string)
+print(matches)
+
