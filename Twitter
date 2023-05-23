@@ -1,6 +1,8 @@
+#!/usr/bin/python3
+
 import re
 
-pattern =r'^@[A-Za-z0-9]'
+pattern =r'^@[A-Za-z0-9]+'
 
 z=input("Enter the Twitter Username\n")
 
@@ -8,4 +10,3 @@ if re.match(pattern, z):
    print(z)
 else:
    print("Invalid")
-
