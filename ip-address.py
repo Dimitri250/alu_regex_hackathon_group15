@@ -2,18 +2,24 @@
 
 import re
 
-def test_ip_address(ip_address):
-    regex = r"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}"
-    match = re.match(regex, ip_address)
+
+def validate_ip_address(ip_address):
+    pattern = r"\b(?:\b(?:[0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}\b(?:[0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\b"
+    match = re.match(pattern, ip_address)
+
     if match:
-        print(f"{ip_address} is a valid IP address.")
+        return "Valid IP address"
     else:
-        print(f"{ip_address} is not a valid IP address.")
+        return "Invalid IP address"
 
-# Test with some IP addresses
-test_ip_address("192.168.0.1")
-test_ip_address("10.0.0.255")
-test_ip_address("172.16.254.1")
-test_ip_address("256.0.0.1")  # Not a valid IP address
-test_ip_address("192.168.0.1.2")  # Not a valid IP address
 
+# Testing the IP address regular expression
+ip1 = "192.168.0.1"
+ip2 = "10.0.0.255"
+ip3 = "256.1.1.1"
+ip4 = "abc.def.ghi.jkl"
+
+print(validate_ip_address(ip1))
+print(validate_ip_address(ip2))
+print(validate_ip_address(ip3))
+print(validate_ip_address(ip4))
